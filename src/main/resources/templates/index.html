@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>Belajar Framework Spring</title>
+</head>
+<body>
+    <p><a href="/add" >Tambah Petani</a></p>
+    <table border="1">
+        <thead>
+            <tr>
+                <th>Nama</th>
+                <th>No Tlp</th>
+                <th>Edit</th>
+                <th>Delete</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr th:each="petani: ${petaniList}">
+                <td th:text="${petani.namaLengkap}"></td>
+                <td th:text="${petani.noTlp}"></td>
+                <td><a th:href="@{/edit/{id}(id=${petani.id})}"> Edit </a> </td>
+                <td><a th:href="@{/delete/{id}(id=${petani.id})}"> Delete </a></td>
+            </tr>
+
+        </tbody>
+    </table>
+</body>
+</html>
